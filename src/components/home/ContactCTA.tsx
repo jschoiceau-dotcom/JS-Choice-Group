@@ -13,7 +13,7 @@ export const ContactCTA = () => {
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-[100px] animate-pulse" />
                 <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-[#8995d3]/20 rounded-full blur-[120px]" />
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay" />
             </div>
 
             {/* 2. Enhanced Floating 3D Elements */}

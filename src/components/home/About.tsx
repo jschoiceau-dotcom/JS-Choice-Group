@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import AboutImg from "../../../public/assets/choose-img.png";
+import AboutImg from "../../../public/assets/choose-img.webp";
+import Image from "next/image";
 import { BlurFade } from "../shadcn-ui/blur-fade";
 
 export const About = () => {
@@ -20,10 +21,12 @@ export const About = () => {
                         >
                             <div className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white dark:border-white/10 relative">
                                 <BlurFade delay={0.25} inView>
-                                    <img
-                                        src={AboutImg.src}
+                                    <Image
+                                        src={AboutImg}
                                         alt="Care support"
                                         className="w-full h-full object-contain"
+                                        placeholder="blur"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                     />
                                 </BlurFade>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

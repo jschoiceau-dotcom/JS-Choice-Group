@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import { Navbar } from "@/src/components/common/Navbar";
-import { Footer } from "@/src/components/common/Footer";
 import { Hero } from "@/src/components/home/Hero";
 import { Introduction } from "@/src/components/home/Introduction";
 import { Services } from "@/src/components/home/Services";
@@ -14,7 +12,6 @@ import { ContactCTA } from "@/src/components/home/ContactCTA";
 const Home: React.FC = () => {
   return (
     <div className="relative min-h-screen">
-      <Navbar />
       <main>
         <Hero />
         <Introduction />
@@ -24,7 +21,6 @@ const Home: React.FC = () => {
         <ContactCTA />
         <FAQ />
       </main>
-      <Footer />
     </div>
   );
 };

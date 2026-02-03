@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import BannerImg from "../../../public/assets/home-img01.jpg";
+import BannerImg from "../../../public/assets/home-img01.webp";
 import Image from "next/image";
 import { BlurFade } from "../shadcn-ui/blur-fade";
 

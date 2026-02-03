@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Logo from "../../../public/assets/logo-img.png";
+import Logo from "../../../public/assets/logo-img.webp";
 
 const servicesItems = [
     {
@@ -93,10 +93,11 @@ const servicesItems = [
 const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "#services", hasDropdown: true },
-    { name: "About Us", href: "#about" },
-    { name: "Blog", href: "#blog" },
-    { name: "Career", href: "#career" },
-    { name: "Resources", href: "#resources" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Blog", href: "/blog" },
+    { name: "Career", href: "/career" },
+    { name: "Resources", href: "/resources" },
+    { name: "Contact Us", href: "/contact-us" },
 ];
 
 export const Navbar = () => {
@@ -223,7 +224,6 @@ export const Navbar = () => {
                                 )}
                             </div>
                         ))}
-                        <Link href="#contact" className="text-sm font-bold hover:text-primary transition-all">Contact Us</Link>
                     </div>
 
                     <div className="hidden md:block">
@@ -293,7 +293,6 @@ export const Navbar = () => {
                                         )}
                                     </div>
                                 ))}
-                                <Link href="#contact" className="text-2xl font-black py-4 border-b border-slate-50" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
                             </div>
 
                             <div className="mt-auto pt-12">

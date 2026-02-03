@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Phone, CheckCircle2, Star } from "lucide-react";
 import Link from "next/link";
-import BannerImg from "../../../public/assets/banner-img.png";
-import HeroBg from "../../../public/assets/hero-bg.png";
+import BannerImg from "../../../public/assets/banner-img.webp";
+import HeroBg from "../../../public/assets/hero-bg.webp";
 import Image from "next/image";
 import { AnimatedShinyText } from "../shadcn-ui/animated-shiny-text";
 import { BlurFade } from "../shadcn-ui/blur-fade";
 
-export const Hero = () => {
+const HeroTextRotator = () => {
     const words = ["Empowers", "Connects", "Supports", "Inspires"];
     const [index, setIndex] = useState(0);
 
@@ -20,6 +20,28 @@ export const Hero = () => {
         }, 3000);
         return () => clearInterval(interval);
     }, []);
+
+    return (
+        <span className="relative inline-block min-w-[200px] md:min-w-[300px]">
+            <AnimatePresence mode="wait">
+                <motion.span
+                    key={words[index]}
+                    initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                    exit={{ y: -20, opacity: 0, filter: "blur(10px)" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="absolute left-0 top-0 text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#818cf8] to-primary bg-[200%_auto] animate-shine"
+                >
+                    {words[index]}
+                </motion.span>
+            </AnimatePresence>
+            {/* Invisible duplicate to hold width */}
+            <span className="invisible">{words[0]}</span>
+        </span>
+    );
+};
+
+export const Hero = () => {
 
     return (
         <section className="relative min-h-[95vh] flex items-center pt-32 pb-20 overflow-hidden">
@@ -59,22 +81,7 @@ export const Hero = () => {
                             <BlurFade delay={0.2} inView>
                                 <h1 className="text-4xl md:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-black tracking-tight leading-[1.0] text-slate-900 dark:text-white">
                                     Care That <br className="hidden lg:block" />
-                                    <span className="relative inline-block min-w-[200px] md:min-w-[300px]">
-                                        <AnimatePresence mode="wait">
-                                            <motion.span
-                                                key={words[index]}
-                                                initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-                                                animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                                                exit={{ y: -20, opacity: 0, filter: "blur(10px)" }}
-                                                transition={{ duration: 0.5, ease: "easeOut" }}
-                                                className="absolute left-0 top-0 text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#818cf8] to-primary bg-[200%_auto] animate-shine"
-                                            >
-                                                {words[index]}
-                                            </motion.span>
-                                        </AnimatePresence>
-                                        {/* Invisible duplicate to hold width */}
-                                        <span className="invisible">{words[0]}</span>
-                                    </span>
+                                    <HeroTextRotator />
                                 </h1>
                             </BlurFade>
                             <BlurFade delay={0.3} inView>

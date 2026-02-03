@@ -12,9 +12,9 @@ import {
     Clock,
     Heart
 } from "lucide-react";
-import Logo from "../../../public/assets/logo-img.png";
-import NDISLogo from "../../../public/assets/footer-ndis-img.png";
-import Acknowledgement from "../../../public/assets/acknowledgement-img.png";
+import Logo from "../../../public/assets/logo-img.webp";
+import NDISLogo from "../../../public/assets/footer-ndis-img.webp";
+import Acknowledgement from "../../../public/assets/acknowledgement-img.webp";
 
 const servicesLeft = [
     "Assistance With Daily Life",

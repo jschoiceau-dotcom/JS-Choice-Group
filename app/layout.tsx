@@ -4,6 +4,9 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { cn } from "@/lib/utils";
 
+import { Navbar } from "@/src/components/common/Navbar";
+import { Footer } from "@/src/components/common/Footer";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(inter.className, "antialiased selection:bg-primary/20 selection:text-primary")}>
-        <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none z-0" />
+        <div className="fixed inset-0 bg-[url('/assets/noise.svg')] opacity-20 pointer-events-none z-0" />
         <Toaster position="bottom-right" />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
