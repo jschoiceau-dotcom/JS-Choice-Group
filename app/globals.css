@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 210 20% 98%;
+        --foreground: 222 47% 11%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222 47% 11%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 47% 11%;
+
+        --primary: 233 73% 81%;
+        /* #abb3f1 */
+        --primary-foreground: 222 47% 11%;
+
+        --secondary: 0 71% 81%;
+        /* #f1abab */
+        --secondary-foreground: 222 47% 11%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 233 73% 81%;
+        --accent-foreground: 222 47% 11%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 233 73% 81%;
+
+        --radius: 1.5rem;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 233 73% 85%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+
+        --secondary: 0 71% 20%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+
+        --accent: 233 73% 85%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 233 73% 85%;
+    }
+  .theme {
+        --animate-shine: shine var(--duration) infinite linear;
+        --animate-shiny-text: shiny-text 8s infinite;
+    }
+}
+
+@layer base {
+    * {
+        border-color: hsl(var(--border));
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .glass {
+        @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+    }
+
+    .dark .glass {
+        @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl;
+    }
+
+    .glass-card {
+        @apply bg-white/40 backdrop-blur-sm border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300;
+    }
+
+    .dark .glass-card {
+        @apply bg-neutral-900/40 backdrop-blur-sm border border-white/5 shadow-2xl;
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+    }
+
+    .bg-mesh {
+        background-image:
+            radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+            radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+            radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+    }
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+}
+
+@theme inline {
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;
+        }
+  50% {
+    background-position: 100% 100%;
+        }
+  to {
+    background-position: 0% 0%;
+        }
+    }
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+        }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+        }
+    }
+}
