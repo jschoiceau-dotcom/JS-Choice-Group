@@ -5,70 +5,84 @@ import { motion } from "framer-motion";
 import BannerImg from "../../../public/assets/home-img01.webp";
 import Image from "next/image";
 import { BlurFade } from "../shadcn-ui/blur-fade";
+import { Check, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export const Introduction = () => {
     return (
-        <section className="py-16 md:py-24 bg-white dark:bg-black overflow-hidden relative">
+        <section className="py-20 md:py-32 bg-white dark:bg-slate-950 overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                    <div className="flex-1">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    {/* Text Content */}
+                    <div className="flex-1 order-2 lg:order-1">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-3xl lg:text-5xl font-black mb-8 leading-tight text-slate-900 drop-shadow-[0_2px_10px_rgba(171,179,241,0.2)]">
-                                Why We are the Ideal Melbourne <br />
-                                <span className="text-slate-800 drop-shadow-none">NDIS Service Providers?</span>
+                            <span className="inline-block text-primary font-bold tracking-wider uppercase text-sm mb-4">Why Choose Us</span>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
+                                Why We are the Ideal <br />
+                                <span className="text-secondary">NDIS Service Partners</span>
                             </h2>
-                            <p className="text-base md:text-xl text-slate-700 mb-8 font-medium leading-relaxed">
-                                Js Choice – Care and Support is undoubtedly the most suitable NDIS organisation in Melbourne since:
+                            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                                Js Choice – Care and Support is undoubtedly the most suitable NDIS organisation in Melbourne. We prioritize your independence and well-being.
                             </p>
 
                             <div className="grid gap-4 mb-10">
                                 {[
-                                    "We provide personalised supports to make your life easier",
-                                    "Our support workers are trained, experienced, and will coordinate with you and your family",
-                                    "Our providers promote social inclusion and help you reach your goals",
-                                    "We comply with NDIS guidelines to provide effective supports to participants"
+                                    "Personalised support plans tailored to your needs",
+                                    "Experienced and compassionate support workers",
+                                    "Promoting social inclusion and community engagement",
+                                    "Full NDIS compliance and safety standards"
                                 ].map((item, i) => (
-                                    <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 group hover:border-primary/50 transition-colors">
-                                        <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-1">
-                                            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" />
-                                            </svg>
+                                    <div key={i} className="flex items-start gap-3">
+                                        <div className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0 mt-0.5">
+                                            <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400" strokeWidth={3} />
                                         </div>
-                                        <span className="text-base md:text-lg font-bold text-slate-800 dark:text-slate-200">{item}</span>
+                                        <span className="text-slate-700 dark:text-slate-300 font-medium">{item}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <p className="text-base md:text-lg text-slate-700 font-medium leading-relaxed italic border-l-4 border-secondary pl-6">
-                                Do you have more queries about our support workers or services? Contact us or go through the FAQ section below to get answers to some of the most common questions.
-                            </p>
+                            <Link
+                                href="/contact-us"
+                                className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl"
+                            >
+                                Get In Touch
+                                <ArrowRight className="ml-2 w-4 h-4" />
+                            </Link>
                         </motion.div>
                     </div>
-                    <div className="flex-1 relative">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white dark:border-white/10"
-                        >
-                            <BlurFade delay={0.25} inView>
-                                <Image
-                                    src={BannerImg}
-                                    alt="Support Care"
-                                    className="w-full h-full object-cover aspect-[4/5] lg:aspect-[4/4]"
-                                />
+
+                    {/* Image Content */}
+                    <div className="flex-1 order-1 lg:order-2 w-full">
+                        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
+                            <BlurFade delay={0.2} inView>
+                                <div className="aspect-[4/3] lg:aspect-square relative">
+                                    <Image
+                                        src={BannerImg}
+                                        alt="Support Care"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                                </div>
                             </BlurFade>
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
-                        </motion.div>
-                        {/* Decorative blobs */}
-                        <div className="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse" />
-                        <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -z-10 animate-pulse delay-700" />
+
+                            {/* Floating Card */}
+                            <div className="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800">
+                                <p className="text-slate-900 dark:text-white font-bold italic text-lg leading-snug">
+                                    "The team is incredibly supportive and truly understands our needs."
+                                </p>
+                                <div className="mt-2 flex items-center gap-2">
+                                    <div className="h-0.5 w-8 bg-primary rounded-full" />
+                                    <span className="text-sm text-slate-500 font-semibold">Sarah M., Melbourne</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

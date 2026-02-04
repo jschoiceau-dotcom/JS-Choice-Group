@@ -34,24 +34,28 @@ const faqs = [
 
 export const FAQ = () => {
     return (
-        <section className="py-16 md:py-24 bg-white dark:bg-black/20">
-            <div className="container mx-auto px-4 max-w-5xl">
+        <section className="py-20 md:py-32 bg-white dark:bg-black/20">
+            <div className="container mx-auto px-4 max-w-4xl">
                 <div className="text-center mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-slate-900 drop-shadow-sm">
-                            Frequently Asked Question
+                        <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3 block">
+                            FAQ
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white">
+                            Frequently Asked Questions
                         </h2>
-                        <div className="w-24 h-1.5 bg-secondary mx-auto rounded-full" />
+                        <div className="w-20 h-1.5 bg-secondary mx-auto mb-8 rounded-full" />
                     </motion.div>
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="space-y-4"
                 >
@@ -60,15 +64,13 @@ export const FAQ = () => {
                             <AccordionItem
                                 key={index}
                                 value={`item-${index}`}
-                                className="border-none bg-slate-50 dark:bg-white/[0.03] rounded-[2rem] px-8 overflow-hidden transition-all duration-300 data-[state=open]:bg-secondary/10 data-[state=open]:ring-2 data-[state=open]:ring-secondary/20"
+                                className="border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.02] rounded-2xl px-6 md:px-8 data-[state=open]:bg-white dark:data-[state=open]:bg-white/5 data-[state=open]:shadow-md transition-all duration-300"
                             >
-                                <AccordionTrigger className="text-lg md:text-xl font-bold text-slate-900 py-8 hover:no-underline hover:text-primary transition-colors text-left flex gap-4">
-                                    <span className="flex-1">{faq.question}</span>
+                                <AccordionTrigger className="text-lg font-bold text-slate-900 dark:text-white py-6 hover:no-underline hover:text-primary transition-colors text-left">
+                                    {faq.question}
                                 </AccordionTrigger>
-                                <AccordionContent className="text-base md:text-lg text-slate-700 font-medium leading-relaxed pb-8 pl-0">
-                                    <div className="pt-4 border-t border-secondary/10">
-                                        {faq.answer}
-                                    </div>
+                                <AccordionContent className="text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed pb-6 pt-2">
+                                    {faq.answer}
                                 </AccordionContent>
                             </AccordionItem>
                         ))}

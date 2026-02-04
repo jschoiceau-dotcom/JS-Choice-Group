@@ -32,61 +32,73 @@ const servicesItems = [
         title: "Daily Life Assistance",
         description: "Personal and household tasks for independent living.",
         icon: <Heart className="w-5 h-5" />,
+        slug: "assistance-with-daily-life"
     },
     {
         title: "Group Activities",
         description: "Mental and physical well-being through community.",
         icon: <Users className="w-5 h-5" />,
+        slug: "group-activities"
     },
     {
         title: "Emergency Respite",
         description: "Quick accommodation and care in urgent situations.",
         icon: <Home className="w-5 h-5" />,
+        slug: "emergency-respite"
     },
     {
         title: "Nursing Care",
         description: "Comprehensive care from registered medical experts.",
         icon: <Stethoscope className="w-5 h-5" />,
+        slug: "nursing-care"
     },
     {
         title: "Community Access",
         description: "Develop social connections and access resources.",
         icon: <Activity className="w-5 h-5" />,
+        slug: "community-participation"
     },
     {
         title: "Transportation",
         description: "Safe and reliable mobility assistance for appointments.",
         icon: <Car className="w-5 h-5" />,
+        slug: "transportation"
     },
     {
         title: "Allied Health",
         description: "Broad array of therapy from specialized practitioners.",
         icon: <ClipboardList className="w-5 h-5" />,
+        slug: "allied-health"
     },
     {
         title: "Recovery Coaching",
         description: "Overcome challenges related to psychosocial disability.",
         icon: <Brain className="w-5 h-5" />,
+        slug: "psychosocial-recovery-coach"
     },
     {
         title: "NDIS Access",
         description: "Expert guidance for your NDIS access requests.",
         icon: <Search className="w-5 h-5" />,
+        slug: "ndis-access"
     },
     {
         title: "Support Coordination",
         description: "Seamlessly manage your NDIS plan and services.",
         icon: <Shield className="w-5 h-5" />,
+        slug: "support-coordination"
     },
     {
         title: "Family Advocacy",
         description: "Professional advocacy for NDIS participants.",
         icon: <UserCircle className="w-5 h-5" />,
+        slug: "family-advocacy"
     },
     {
         title: "Innovative Participation",
         description: "Unique ways to engage with your local community.",
         icon: <ArrowRight className="w-5 h-5" />,
+        slug: "innovative-participation"
     }
 ];
 
@@ -161,7 +173,7 @@ export const Navbar = () => {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-1">
                         {navLinks.map((link) => (
                             <div
                                 key={link.name}
@@ -171,57 +183,58 @@ export const Navbar = () => {
                             >
                                 <Link
                                     href={link.href}
-                                    className="text-sm font-bold hover:text-primary transition-all duration-300 flex items-center gap-1 group"
+                                    className="px-4 py-2 rounded-full text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-1 group"
                                 >
                                     {link.name}
                                     {link.hasDropdown && (
-                                        <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", isServicesOpen && "rotate-180")} />
+                                        <ChevronDown className={cn("w-4 h-4 transition-transform duration-300 text-slate-400 group-hover:text-slate-600", isServicesOpen && "rotate-180")} />
                                     )}
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                                 </Link>
 
-                                {link.hasDropdown && (
-                                    <AnimatePresence>
-                                        {isServicesOpen && (
-                                            <motion.div
-                                                initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                                exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                                                className="absolute top-[calc(100%+5px)] -left-48 lg:-left-96 w-[600px] lg:w-[800px] bg-white border border-slate-200 shadow-2xl rounded-[2rem] p-6 overflow-hidden z-[60]"
-                                            >
-                                                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                                                    {servicesItems.map((item) => (
-                                                        <Link
-                                                            key={item.title}
-                                                            href={`#services`}
-                                                            className="flex gap-4 p-3 rounded-2xl hover:bg-slate-50 transition-all duration-300 group/item"
-                                                        >
-                                                            <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover/item:bg-white group-hover/item:border-primary/20 group-hover/item:shadow-lg transition-all text-primary">
-                                                                {React.cloneElement(item.icon as React.ReactElement, { className: "w-4 h-4" })}
-                                                            </div>
-                                                            <div className="space-y-0.5">
-                                                                <h5 className="font-bold text-sm group-hover/item:text-primary transition-colors">{item.title}</h5>
-                                                                <p className="text-[12px] text-slate-500 font-medium leading-tight">{item.description}</p>
-                                                            </div>
-                                                        </Link>
-                                                    ))}
-                                                </div>
-
-                                                <div className="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center bg-slate-50 -mx-6 -mb-6 px-6 py-4">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
-                                                            <Heart className="w-4 h-4 fill-current" />
-                                                        </div>
-                                                        <p className="text-xs font-bold text-slate-600">Empowering your future care.</p>
+                                {
+                                    link.hasDropdown && (
+                                        <AnimatePresence>
+                                            {isServicesOpen && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                                    className="absolute top-[calc(100%+5px)] -left-48 lg:-left-96 w-[600px] lg:w-[800px] bg-white border border-slate-200 shadow-2xl rounded-[2rem] p-6 overflow-hidden z-[60]"
+                                                >
+                                                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                                                        {servicesItems.map((item) => (
+                                                            <Link
+                                                                key={item.title}
+                                                                href={`/${item.slug}`}
+                                                                className="flex gap-4 p-3 rounded-2xl hover:bg-slate-50 transition-all duration-300 group/item"
+                                                            >
+                                                                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover/item:bg-white group-hover/item:border-primary/20 group-hover/item:shadow-lg transition-all text-primary">
+                                                                    {React.cloneElement(item.icon as React.ReactElement, { className: "w-4 h-4" })}
+                                                                </div>
+                                                                <div className="space-y-0.5">
+                                                                    <h5 className="font-bold text-sm group-hover/item:text-primary transition-colors">{item.title}</h5>
+                                                                    <p className="text-[12px] text-slate-500 font-medium leading-tight">{item.description}</p>
+                                                                </div>
+                                                            </Link>
+                                                        ))}
                                                     </div>
-                                                    <Link href="#services" className="text-primary font-black text-sm uppercase tracking-widest hover:underline md:flex items-center gap-2">
-                                                        See All Services <ArrowRight className="w-4 h-4" />
-                                                    </Link>
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                )}
+
+                                                    <div className="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center bg-slate-50 -mx-6 -mb-6 px-6 py-4">
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                                                                <Heart className="w-4 h-4 fill-current" />
+                                                            </div>
+                                                            <p className="text-xs font-bold text-slate-600">Empowering your future care.</p>
+                                                        </div>
+                                                        <Link href="#services" className="text-primary font-black text-sm uppercase tracking-widest hover:underline md:flex items-center gap-2">
+                                                            See All Services <ArrowRight className="w-4 h-4" />
+                                                        </Link>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    )
+                                }
                             </div>
                         ))}
                     </div>
@@ -280,7 +293,7 @@ export const Navbar = () => {
                                                 {servicesItems.slice(0, 5).map((item) => (
                                                     <Link
                                                         key={item.title}
-                                                        href={`#services`}
+                                                        href={item.slug ? `/${item.slug}` : "/services"}
                                                         className="flex items-center gap-3 text-slate-600 font-bold"
                                                         onClick={() => setIsMobileMenuOpen(false)}
                                                     >
@@ -312,6 +325,6 @@ export const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </nav >
     );
 };
