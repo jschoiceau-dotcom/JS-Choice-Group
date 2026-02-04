@@ -1,7 +1,7 @@
 import { AboutHero } from "@/src/components/about/AboutHero";
 import { WhoWeAre } from "@/src/components/about/WhoWeAre";
 import { OurValues } from "@/src/components/about/OurValues";
-import { AboutCTA } from "@components/about/AboutCTA";
+import { AboutCTA } from "@/src/components/about/AboutCTA";
 
 export default function AboutPage() {
     return (

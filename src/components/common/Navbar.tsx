@@ -125,16 +125,16 @@ export const Navbar = () => {
                 {!isScrolled && (
                     <div className="hidden lg:flex justify-between items-center bg-white/50 backdrop-blur-md border border-white rounded-full px-8 py-3 mb-4 text-sm text-slate-700 dark:text-white/80 font-bold">
                         <div className="flex gap-8">
-                            <span className="flex items-center gap-2">
+                            <span className="flex items-center gap-2 text-black">
                                 <Phone className="w-4 h-4 text-primary" />
                                 0393 946 305 / 0421 622 262
                             </span>
-                            <span className="flex items-center gap-2">
+                            <span className="flex items-center gap-2 text-black">
                                 <Mail className="w-4 h-4 text-secondary" />
                                 info@jschoicegroup.com.au
                             </span>
                         </div>
-                        <div className="flex gap-4 items-center text-primary">
+                        <div className="flex gap-4 items-center text-black">
                             <span className="flex items-center gap-2">
                                 <Clock className="w-4 h-4" />
                                 Office - 8 am to 6 pm, Care Services - 24 Hours
@@ -229,7 +229,7 @@ export const Navbar = () => {
                     <div className="hidden md:block">
                         <Link
                             href="#contact"
-                            className="bg-primary text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center gap-2 group hover:scale-105 active:scale-95"
+                            className="bg-primary text-black px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center gap-2 group hover:scale-105 active:scale-95"
                         >
                             Referral
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
